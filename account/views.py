@@ -30,8 +30,9 @@ def login(request):
             print("Logged In Success")
             auth_login(request, user)
             return redirect('dashboard')
-        
-        
+        else:
+            messages.info(request, 'Invalid credential')
+            return render(request, 'login.html')
     return render(request, 'login.html')
 
 def dashboard(request):
